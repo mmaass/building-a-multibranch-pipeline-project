@@ -37,7 +37,7 @@ pipeline {
             }
             steps {
                 sh './jenkins/scripts/deploy-for-production.sh'
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'mederp prod', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '/home/jenkins/foo/deploy.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'foo', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'build/**')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'mederp prod', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '/home/jenkins/deploy-mederp/deploy.sh', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'foo', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'build/**')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
             }
         }
     }
